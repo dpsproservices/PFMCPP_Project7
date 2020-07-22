@@ -15,6 +15,45 @@ Character::Character(int hp, int armor_, int attackDamage_ ) :
     initialAttackDamage.reset( new int( attackDamage) );
 }
 
+int Character::getHP() const { return hitPoints; }
+
+int Character::getArmorLevel() const { return armor; }
+
+int Character::getAttackDamage() const { return attackDamage; }
+
+bool Character::getIsDefending() const { return isDefending; }
+
+const std::vector<std::unique_ptr<Item>>& Character::getHelpfulItems() const { return helpfulItems; }
+
+const std::vector<std::unique_ptr<Item>>& Character::getDefensiveItems() const { return defensiveItems; }
+
+void Character::boostArmor( int amount )
+{
+    armor += amount;
+    std::cout << getName() << "'s armor level has been boosted to " << armor << std::endl;
+}
+
+void Character::boostHitPoints( int amount )
+{
+    hitPoints += amount;
+    std::cout << getName() << "'s hit point level has been boosted to " << hitPoints << std::endl;
+}
+
+void Character::boostAttackDamage( int amount )
+{
+    attackDamage += amount;
+    std::cout << getName() << "'s attack damage level has been boosted to " << attackDamage << std::endl;
+}
+
+void Character::printStats()
+{
+    std::cout << getName() << "'s stats: " << std::endl;
+    std::cout << getStats(); //make your getStats() use a function from the Utility.h
+    
+    std::cout << std::endl;
+    std::cout << std::endl;
+}
+
 void Character::attack( Character& other )
 {
     if( hitPoints <= 0 )
@@ -86,8 +125,6 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
-
-#include <assert>
 void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
@@ -97,21 +134,17 @@ void Character::attackInternal(Character& other)
             a) your stats are restored to their initial value if they are lower than it.
             b) your stats are boosted 10%
             c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
-      */
-        assert(false);
+        */
+
+        if(*initialHitPoints.get())
+        {
+            // stats are restored to their initial value if they are lower than it
+            if(hitPoints < *initialHitPoints.get() )
+            {
+                hitPoints = *initialHitPoints.get();
+            }
+        }
+
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
     }
-}
-
-void Character::printStats()
-{
-    std::cout << getName() << "'s stats: " << std::endl;
-    assert(false);
-    /*
-    make your getStats() use a function from the Utility.h
-    */
-    std::cout << getStats(); 
-    
-    std::cout << std::endl;
-    std::cout << std::endl;
 }

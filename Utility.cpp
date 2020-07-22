@@ -1,9 +1,13 @@
 #include "Utility.h"
 
+#include "Character.h"
+#include "DragonSlayer.h"
+#include "Dragon.h"
+#include "Dwarf.h"
+#include "Paladin.h"
+#include "Item.h"
 #include "HelpfulItem.h"
 #include "DefensiveItem.h"
-#include "Character.h"
-
 
 std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num)
 {
@@ -43,7 +47,7 @@ std::string getCharacterStats(Character* ch)
     return str;
 }
 
-void useDefensiveItem(Character*, Item& item)
+void useDefensiveItem(Character* character, Item& item)
 {
     //dwarves, paladins, and DragonSlayers get extra boosts from defensive item.
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
@@ -64,7 +68,8 @@ void useDefensiveItem(Character*, Item& item)
         //dragons don't need defensive items
     }  
 }
-void useHelpfulItem(Character*, Item* item)
+
+void useHelpfulItem(Character* character, Item* item)
 {
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
     {
@@ -83,7 +88,8 @@ void useHelpfulItem(Character*, Item* item)
         //dragons don't carry helpful items!
     }
 }
-void useAttackItem(Character*, Item* item)
+
+void useAttackItem(Character* character, Item* item)
 {
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
     {
@@ -95,11 +101,19 @@ void useAttackItem(Character*, Item* item)
     }
     else if( auto* ch = dynamic_cast<DragonSlayer*>(character))
     {
-        assert(false);
+        //assert(false);
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
         //so their attack item should boost their attack damage by a factor of 10
         //this means you need to GET the attack damage, multiply it by the item's boost, and BOOST the attackDamage with that multiplied value.  
         //check Character.h for available member functions you can use.
+
+        int attackDamage = ch->getAttackDamage();
+
+        int itemBoost = item->getBoost();
+
+        int multiplier = attackDamage * itemBoost;
+
+        ch->boostAttackDamage(multiplier);
     }
     else if( auto* ch = dynamic_cast<Dragon*>(character) )
     {

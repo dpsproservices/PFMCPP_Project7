@@ -67,10 +67,12 @@ send me a DM to check your pull request
 int main()
 {
                       //name, hit points, armor. 
-    Dwarf dwarf { "Maldin the Dwarf", 3, 1 };
-    Paladin paladin { "Warrick the Paladin", 5, 2 };
-    Dragon dragon { "Garry The Dragon", 200, 50 };
-    DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5 };
+    Dwarf dwarf ( "Maldin the Dwarf", 3, 1, 4 );
+
+/*
+    Paladin paladin ( "Warrick the Paladin", 5, 2, 10 );
+    Dragon dragon ( "Garry The Dragon", 200, 50, 80 );
+    DragonSlayer dragonSlayer ( "Virgil the Dragon Slayer", 8, 5, 4 );
     
     std::cout << "\nstart of battle" << std::endl;
 
@@ -91,10 +93,17 @@ int main()
     dragonSlayer.attack( dwarf ); 
     
     std::cout << std::endl << "end of battle stats:" << std::endl;
-    
-    std::vector<Character*> characters { &dwarf, &paladin, &dragon, &dragonSlayer };
+*/    
+    //std::vector<Character*> characters ( &dwarf, &paladin, &dragon, &dragonSlayer );
+
+
+    //std::vector<Character*> characters ( &dwarf );
+
+/*
     for( auto* character : characters )
+    {
         character->printStats();
-    
+    }
+*/
     return 0;
 }
