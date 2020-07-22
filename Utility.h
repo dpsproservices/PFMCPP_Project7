@@ -3,7 +3,9 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "Item.h"
 
+//struct Item;
 std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num);
 
 std::vector<std::unique_ptr<Item>> makeDefensiveItems(int num);

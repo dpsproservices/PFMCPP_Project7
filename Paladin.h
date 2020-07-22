@@ -21,7 +21,7 @@ struct Paladin : Character
 
         std::string getStats() override;
 
-        void attack( Character& other ) override;
+        //void attack( Character& other ) override;
 
 
     private:

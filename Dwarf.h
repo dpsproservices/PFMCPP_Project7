@@ -1,7 +1,8 @@
 #pragma once
-#include <string>
 
-struct Character;
+#include <string>
+#include "Character.h"
+
 struct Dwarf : Character
 {
     public:
@@ -20,7 +21,7 @@ struct Dwarf : Character
 
         std::string getStats() override;
 
-        void attack( Character& other ) override;
+        //void attack( Character& other ) override;
 
     private:
 

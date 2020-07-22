@@ -1,15 +1,15 @@
 #pragma once
 
 #include <string>
+#include "Character.h"
 
-struct Character;
 struct Dragon : Character
 {
     public:
     
         Dragon
         (
-            std::string& name_, 
+            std::string name_, 
             int hitPoints_, 
             int armor_, 
             int attackDamage_ 
