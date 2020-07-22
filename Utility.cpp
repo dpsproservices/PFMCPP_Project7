@@ -120,3 +120,14 @@ void useAttackItem(Character* character, Item* item)
         //dragons don't carry attack items!
     }
 }
+
+// void makeItems(Character* character)
+// {
+//     int randomNumber = (rand() % 4);
+//     std::vector<std::unique_ptr<Item>> helpfulItems = makeHelpfulItems(randomNumber);
+
+//     randomNumber = (rand() % 4);
+//     std::vector<std::unique_ptr<Item>> defensiveItems = makeDefensiveItems(randomNumber);
+
+//     character->helpfulItems = helpfulItems;
+// }

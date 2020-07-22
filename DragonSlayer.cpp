@@ -9,7 +9,13 @@ DragonSlayer::DragonSlayer
     int hitPoints_, 
     int armor_, 
     int attackDamage_ 
-) : Character(hitPoints_, armor_, attackDamage_), name(name_) {}
+) : Character(hitPoints_, armor_, attackDamage_), name(name_) 
+{
+    int randomNumber = (rand() % 4);
+    helpfulItems = makeHelpfulItems(randomNumber);
+    randomNumber = (rand() % 4);
+    defensiveItems = makeDefensiveItems(randomNumber);
+}
 
 //DragonSlayer::~DragonSlayer() {}
 
@@ -31,7 +37,11 @@ void DragonSlayer::attack(Character& other)
         //assert(false);
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
         //so they should USE their attack item before attacking the dragon... 
-        //note that items are single-use only, so you need to reset it after use.  
+        //note that items are single-use only, so you need to reset it after use. 
+        
+        useAttackItem(Character*, Item*);
+ 
+
         //look in the Character class for how the other item types are reset after use.
         while( dragon->getHP() > 0 )
         {

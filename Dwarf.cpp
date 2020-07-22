@@ -8,7 +8,13 @@ Dwarf::Dwarf
     int hitPoints_, 
     int armor_, 
     int attackDamage_ 
-) : Character(hitPoints_, armor_, attackDamage_), name(name_) {}
+) : Character(hitPoints_, armor_, attackDamage_), name(name_) 
+{
+    int randomNumber = (rand() % 4);
+    helpfulItems = makeHelpfulItems(randomNumber);
+    randomNumber = (rand() % 4);
+    defensiveItems = makeDefensiveItems(randomNumber);
+}
 
 //Dwarf::~Dwarf() {}
 

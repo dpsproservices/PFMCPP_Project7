@@ -145,6 +145,10 @@ void Character::attackInternal(Character& other)
             }
         }
 
+        hitPoints *= 1.1;
+
+        
+
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
     }
 }
