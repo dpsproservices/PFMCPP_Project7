@@ -5,27 +5,19 @@
 
 struct Paladin : Character
 {
-    public:
+    Paladin
+    (
+        std::string name_, 
+        int hitPoints_, 
+        int armor_, 
+        int attackDamage_
+    );
 
-        Paladin
-        (
-            std::string name_, 
-            int hitPoints_, 
-            int armor_, 
-            int attackDamage_
-        );
+    const std::string& getName() override;
 
-        //~Paladin();
-
-        const std::string& getName() override;
-
-        std::string getStats() override;
-
-        //void attack( Character& other ) override;
-
+    std::string getStats() override;
 
     private:
 
         const std::string name;
-
 };

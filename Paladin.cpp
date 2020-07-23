@@ -12,11 +12,10 @@ Paladin::Paladin
 {
     int randomNumber = (rand() % 4);
     helpfulItems = makeHelpfulItems(randomNumber);
+    
     randomNumber = (rand() % 4);
     defensiveItems = makeDefensiveItems(randomNumber);
 }
-
-//Paladin::~Paladin() {}
 
 const std::string& Paladin::getName()
 {

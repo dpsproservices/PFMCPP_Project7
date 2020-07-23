@@ -2,6 +2,7 @@
 #include "Dragon.h"
 #include "Character.h"
 #include "Utility.h"
+#include "AttackItem.h"
 
 DragonSlayer::DragonSlayer
 (
@@ -13,11 +14,10 @@ DragonSlayer::DragonSlayer
 {
     int randomNumber = (rand() % 4);
     helpfulItems = makeHelpfulItems(randomNumber);
+
     randomNumber = (rand() % 4);
     defensiveItems = makeDefensiveItems(randomNumber);
 }
-
-//DragonSlayer::~DragonSlayer() {}
 
 const std::string& DragonSlayer::getName()
 {
@@ -32,6 +32,7 @@ std::string DragonSlayer::getStats()
 void DragonSlayer::attack(Character& other)
 {
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
+
     if( auto* dragon = dynamic_cast<Dragon*>(&other) )
     {
         //assert(false);
@@ -39,8 +40,15 @@ void DragonSlayer::attack(Character& other)
         //so they should USE their attack item before attacking the dragon... 
         //note that items are single-use only, so you need to reset it after use. 
         
-        useAttackItem(Character*, Item*);
- 
+        if (attackItem == nullptr)
+        {
+            std::cout << getName() << "'s attack item has already been used." << std::endl;
+        }
+        else
+        {
+            attackItem->use(this);
+            attackItem.reset();
+        }
 
         //look in the Character class for how the other item types are reset after use.
         while( dragon->getHP() > 0 )

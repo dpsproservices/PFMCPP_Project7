@@ -2,29 +2,29 @@
 
 #include <string>
 #include "Character.h"
+#include "AttackItem.h"
 
 struct DragonSlayer : Character
 {
-    public:
+    DragonSlayer
+    (
+        std::string name_, 
+        int hitPoints_, 
+        int armor_, 
+        int attackDamage_ 
+    );
 
-        DragonSlayer
-        (
-            std::string name_, 
-            int hitPoints_, 
-            int armor_, 
-            int attackDamage_ 
-        );
+    const std::string& getName() override;
 
-        //~DragonSlayer();
+    std::string getStats() override;
 
-        const std::string& getName() override;
-
-        std::string getStats() override;
-
-        void attack( Character& other ) override;
+    void attack( Character& other ) override;
 
     private:
 
         const std::string name;
+
+        // only DragonSlayer has an attack item the sword named Excalibur!
+        std::unique_ptr<AttackItem> attackItem { new AttackItem() };
     
 };

@@ -145,9 +145,11 @@ void Character::attackInternal(Character& other)
             }
         }
 
+        // Hit Points boosted by 10% which means multiply by factor of 1.1 
         hitPoints *= 1.1;
 
-        
+        // Initial value of Hit Points becomes this boosted Hit Points
+        *initialHitPoints = hitPoints;
 
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
     }

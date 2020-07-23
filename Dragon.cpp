@@ -11,8 +11,6 @@ Dragon::Dragon
     int attackDamage_ 
 ) : Character(hitPoints_, armor_, attackDamage_), name(name_) {}
 
-//Dragon::~Dragon() {}
-
 void Dragon::attack(Character &other)
 {
     std::cout << name << " is attacking " << other.getName() << "!!!" << std::endl;

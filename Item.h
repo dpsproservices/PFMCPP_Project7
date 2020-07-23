@@ -5,23 +5,19 @@
 struct Character;
 struct Item
 {
+    Item(const std::string& name_, int effect );
+    
+    virtual ~Item() { }
 
-    public:
+    virtual void use(Character*) = 0;
 
-        Item(const std::string& name_, int effect );
-        
-        virtual ~Item() { }
-
-        virtual void use(Character*) = 0;
-
-        inline const std::string& getName() { return name; }
-        
-        inline int getBoost() const { return boost; }
+    inline const std::string& getName() { return name; }
+    
+    inline int getBoost() const { return boost; }
 
     private:
 
         std::string name;
         
         int boost;
-
 };

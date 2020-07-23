@@ -9,72 +9,68 @@
 
 struct Character
 {
+    Character(int hp, int armor_, int attackDamage_ );
 
-    public:
+    virtual ~Character() { }
+    
+    /*
+    a pure virtual getName function.
+    derived class stores the name, not the base class.
+    */
+    
+    virtual const std::string& getName() = 0;
 
-        Character(int hp, int armor_, int attackDamage_ );
+    virtual std::string getStats() = 0;
+    
+    virtual void attack( Character& other );
 
-        virtual ~Character() { }
-        
-        /*
-        a pure virtual getName function.
-        derived class stores the name, not the base class.
-        */
-        
-        virtual const std::string& getName() = 0;
+    void defend();
+    
+    void help( Character& other );
+    
+    int takeDamage(int damage);
+    
+    int getHP() const;
 
-        virtual std::string getStats() = 0;
-        
-        virtual void attack( Character& other );
+    int getArmorLevel() const;
 
-        void defend();
-        
-        void help( Character& other );
-        
-        int takeDamage(int damage);
-        
-        int getHP() const;
+    int getAttackDamage() const;
 
-        int getArmorLevel() const;
+    bool getIsDefending() const;
 
-        int getAttackDamage() const;
+    const std::vector<std::unique_ptr<Item>>& getHelpfulItems() const;
 
-        bool getIsDefending() const;
+    const std::vector<std::unique_ptr<Item>>& getDefensiveItems() const;
+    
+    void boostArmor( int amount );
+    
+    void boostHitPoints( int amount );
+    
+    void boostAttackDamage( int amount );
 
-        const std::vector<std::unique_ptr<Item>>& getHelpfulItems() const;
+    void printStats();
 
-        const std::vector<std::unique_ptr<Item>>& getDefensiveItems() const;
-        
-        void boostArmor( int amount );
-        
-        void boostHitPoints( int amount );
-        
-        void boostAttackDamage( int amount );
+protected:
 
-        void printStats();
+    std::vector<std::unique_ptr<Item>> defensiveItems;
 
-    protected:
+    std::vector<std::unique_ptr<Item>> helpfulItems;
 
-        std::vector<std::unique_ptr<Item>> defensiveItems;
+    int hitPoints;
+    
+    int armor;
 
-        std::vector<std::unique_ptr<Item>> helpfulItems;
+    int attackDamage;
 
-        int hitPoints;
-        
-        int armor;
+    bool isDefending = false;
 
-        int attackDamage;
+private:
 
-        bool isDefending = false;
+    std::unique_ptr<int> initialHitPoints;
 
-    private:
+    std::unique_ptr<int> initialArmorLevel;
 
-        std::unique_ptr<int> initialHitPoints;
-
-        std::unique_ptr<int> initialArmorLevel;
-
-        std::unique_ptr<int> initialAttackDamage;
-        
-        void attackInternal(Character& other);
-
+    std::unique_ptr<int> initialAttackDamage;
+    
+    void attackInternal(Character& other);
 };

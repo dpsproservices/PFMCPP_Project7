@@ -4,12 +4,8 @@
 
 struct Character;
 struct HelpfulItem : Item
-{
-    public:
-    
-        HelpfulItem();
+{   
+    HelpfulItem();
 
-        //~HelpfulItem();
-
-        void use(Character* character) override;
+    void use(Character* character) override;
 };

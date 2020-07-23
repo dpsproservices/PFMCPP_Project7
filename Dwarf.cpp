@@ -12,11 +12,10 @@ Dwarf::Dwarf
 {
     int randomNumber = (rand() % 4);
     helpfulItems = makeHelpfulItems(randomNumber);
+    
     randomNumber = (rand() % 4);
     defensiveItems = makeDefensiveItems(randomNumber);
 }
-
-//Dwarf::~Dwarf() {}
 
 const std::string& Dwarf::getName()
 {
@@ -27,8 +26,3 @@ std::string Dwarf::getStats()
 {
     return getCharacterStats(this);
 }
-
-// void Dwarf::attack( Character& other )
-// {
-
-// }
