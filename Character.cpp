@@ -125,6 +125,60 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
+void Character::levelUpHitPoints()
+{
+    if(*initialHitPoints.get())
+    {
+        // stats are restored to their initial value if they are lower than it
+        if(hitPoints < *initialHitPoints.get() )
+        {
+            hitPoints = *initialHitPoints.get();
+        }
+    }
+
+    // Hit Points boosted by 10% which means multiply by factor of 1.1 
+    hitPoints *= 1.1;
+
+    // Initial value of Hit Points becomes this boosted Hit Points
+    *initialHitPoints = hitPoints;
+}
+
+void Character::levelUpArmor()
+{
+    if(*initialArmorLevel.get())
+    {
+        // stats are restored to their initial value if they are lower than it
+        if(armor < *initialArmorLevel.get() )
+        {
+            armor = *initialArmorLevel.get();
+        }
+    }
+
+    // Hit Points boosted by 10% which means multiply by factor of 1.1 
+    armor *= 1.1;
+
+    // Initial value of Hit Points becomes this boosted Hit Points
+    *initialArmorLevel = armor;
+}
+
+void Character::levelUpAttackDamage()
+{
+    if(*initialAttackDamage.get())
+    {
+        // stats are restored to their initial value if they are lower than it
+        if(attackDamage < *initialAttackDamage.get() )
+        {
+            attackDamage = *initialAttackDamage.get();
+        }
+    }
+
+    // Hit Points boosted by 10% which means multiply by factor of 1.1 
+    attackDamage *= 1.1;
+
+    // Initial value of Hit Points becomes this boosted Hit Points
+    *initialAttackDamage = attackDamage;
+}
+
 void Character::attackInternal(Character& other)
 {
     if( other.hitPoints <= 0 )
@@ -136,20 +190,9 @@ void Character::attackInternal(Character& other)
             c) the initial value of your stats is updated to reflect this boosted stat for the next time you defeat another character.
         */
 
-        if(*initialHitPoints.get())
-        {
-            // stats are restored to their initial value if they are lower than it
-            if(hitPoints < *initialHitPoints.get() )
-            {
-                hitPoints = *initialHitPoints.get();
-            }
-        }
-
-        // Hit Points boosted by 10% which means multiply by factor of 1.1 
-        hitPoints *= 1.1;
-
-        // Initial value of Hit Points becomes this boosted Hit Points
-        *initialHitPoints = hitPoints;
+        levelUpHitPoints();
+        levelUpArmor();
+        levelUpAttackDamage();
 
         std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
     }

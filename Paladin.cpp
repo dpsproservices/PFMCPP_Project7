@@ -6,15 +6,17 @@ Paladin::Paladin
 (
     std::string name_, 
     int hitPoints_, 
-    int armor_, 
-    int attackDamage_ 
-) : Character(hitPoints_, armor_, attackDamage_), name(name_) 
+    int armor_
+) : Character(hitPoints_, armor_, 10), name(name_) 
 {
-    int randomNumber = (rand() % 4);
-    helpfulItems = makeHelpfulItems(randomNumber);
+    // int randomNumber = (rand() % 4);
+    // helpfulItems = makeHelpfulItems(randomNumber);
     
-    randomNumber = (rand() % 4);
-    defensiveItems = makeDefensiveItems(randomNumber);
+    // randomNumber = (rand() % 4);
+    // defensiveItems = makeDefensiveItems(randomNumber);
+
+    helpfulItems = makeHelpfulItems(3);
+    defensiveItems = makeDefensiveItems(7);
 }
 
 const std::string& Paladin::getName()

@@ -10,8 +10,7 @@ struct DragonSlayer : Character
     (
         std::string name_, 
         int hitPoints_, 
-        int armor_, 
-        int attackDamage_ 
+        int armor
     );
 
     const std::string& getName() override;

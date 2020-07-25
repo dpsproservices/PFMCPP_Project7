@@ -9,8 +9,7 @@ struct Paladin : Character
     (
         std::string name_, 
         int hitPoints_, 
-        int armor_, 
-        int attackDamage_
+        int armor_
     );
 
     const std::string& getName() override;
