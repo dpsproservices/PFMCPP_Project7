@@ -23,10 +23,6 @@ int Character::getAttackDamage() const { return attackDamage; }
 
 bool Character::getIsDefending() const { return isDefending; }
 
-const std::vector<std::unique_ptr<Item>>& Character::getHelpfulItems() const { return helpfulItems; }
-
-const std::vector<std::unique_ptr<Item>>& Character::getDefensiveItems() const { return defensiveItems; }
-
 void Character::attack( Character& other )
 {
     if( hitPoints <= 0 )
