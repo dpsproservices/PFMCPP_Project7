@@ -7,9 +7,9 @@ struct Item
 {
     Item(const std::string& name_, int effect );
     
-    virtual ~Item() { }
+    virtual ~Item();
 
-    virtual void use(Character*) = 0;
+    virtual void use(Character*);
 
     inline const std::string& getName() { return name; }
     
