@@ -93,9 +93,5 @@ private:
     
     void attackInternal(Character& other);
 
-    void levelUpHitPoints();
-
-    void levelUpArmor();
-    
-    void levelUpAttackDamage();    
+    void levelUp(int& initialStat, int& currentStat);
 };
