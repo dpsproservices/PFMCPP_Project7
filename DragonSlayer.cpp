@@ -4,12 +4,9 @@
 #include "Utility.h"
 #include "AttackItem.h"
 
-DragonSlayer::DragonSlayer
-(
-    std::string name_, 
-    int hitPoints_, 
-    int armor_
-) : Character(hitPoints_, armor_, 4), name(name_) 
+DragonSlayer::DragonSlayer( std::string name_, int hitPoints_, int armor_ ) : 
+Character(hitPoints_, armor_, 4), 
+name(name_) 
 {
     // int randomNumber = (rand() % 4);
     // helpfulItems = makeHelpfulItems(randomNumber);
@@ -17,8 +14,8 @@ DragonSlayer::DragonSlayer
     // randomNumber = (rand() % 4);
     // defensiveItems = makeDefensiveItems(randomNumber);
 
-    helpfulItems = makeHelpfulItems(4);
-    defensiveItems = makeDefensiveItems(2);
+    helpfulItems = makeHelpfulItems(3);
+    defensiveItems = makeDefensiveItems(1);
 }
 
 const std::string& DragonSlayer::getName()

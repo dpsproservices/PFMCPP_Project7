@@ -15,9 +15,9 @@ struct Item
     
     inline int getBoost() const { return boost; }
 
-    private:
+private:
 
-        std::string name;
-        
-        int boost;
+    std::string name;
+    
+    int boost;
 };

@@ -15,14 +15,6 @@ Character::Character(int hp, int armor_, int attackDamage_ ) :
     initialAttackDamage.reset( new int( attackDamage) );
 }
 
-int Character::getHP() const { return hitPoints; }
-
-int Character::getArmorLevel() const { return armor; }
-
-int Character::getAttackDamage() const { return attackDamage; }
-
-bool Character::getIsDefending() const { return isDefending; }
-
 void Character::attack( Character& other )
 {
     if( hitPoints <= 0 )

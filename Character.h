@@ -30,13 +30,13 @@ struct Character
     
     int takeDamage(int damage);
     
-    int getHP() const;
+    int getHP() const { return hitPoints; }
 
-    int getArmorLevel() const;
+    int getArmorLevel() const { return armor; }
 
-    int getAttackDamage() const;
+    int getAttackDamage() const { return attackDamage; }
 
-    bool getIsDefending() const;
+    bool getIsDefending() const { return isDefending; }
 
     const std::vector<std::unique_ptr<Item>>& getHelpfulItems() const { return helpfulItems; }
 

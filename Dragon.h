@@ -5,12 +5,7 @@
 
 struct Dragon : Character
 {   
-    Dragon
-    (
-        std::string name_, 
-        int hitPoints_, 
-        int armor_
-    );
+    Dragon ( std::string name_, int hitPoints_, int armor_ );
 
     const std::string& getName() override;
 
@@ -18,7 +13,7 @@ struct Dragon : Character
 
     void attack( Character& other ) override;
 
-    private:
+private:
 
-        const std::string name;
+    const std::string name;
 };
