@@ -75,21 +75,13 @@ protected:
 
     std::vector<std::unique_ptr<Item>> helpfulItems;
 
-    int hitPoints;
-    
-    int armor;
-
-    int attackDamage;
+    int hitPoints, armor, attackDamage;
 
     bool isDefending = false;
 
 private:
 
-    std::unique_ptr<int> initialHitPoints;
-
-    std::unique_ptr<int> initialArmorLevel;
-
-    std::unique_ptr<int> initialAttackDamage;
+    std::unique_ptr<int> initialHitPoints, initialArmorLevel, initialAttackDamage;
     
     void attackInternal(Character& other);
 
