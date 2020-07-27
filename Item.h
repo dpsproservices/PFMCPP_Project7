@@ -9,7 +9,7 @@ struct Item
     
     virtual ~Item();
 
-    virtual void use(Character*);
+    virtual void use(Character*) = 0;
 
     inline const std::string& getName() { return name; }
     

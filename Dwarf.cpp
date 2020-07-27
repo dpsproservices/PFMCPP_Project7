@@ -1,5 +1,4 @@
 #include "Dwarf.h"
-#include "Character.h"
 #include "Utility.h"
 
 Dwarf::Dwarf ( std::string name_, int hitPoints_, int armor_ ) : 

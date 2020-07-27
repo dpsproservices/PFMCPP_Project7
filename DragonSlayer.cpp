@@ -1,6 +1,5 @@
 #include "DragonSlayer.h"
 #include "Dragon.h"
-#include "Character.h"
 #include "Utility.h"
 #include "AttackItem.h"
 
